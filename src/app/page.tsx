@@ -1,10 +1,10 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
-import SLABanner from '../components/SLABanner';
-import SLAChartsSection from '../components/SLAChartsSection';
-import CommentForm from '../components/CommentForm';
-import LiveTicketsTable from '../components/LiveTicketsTable';
+import Sidebar from '@/components/Sidebar';
+import Navbar from '@/components/Navbar';
+import SLABanner from '@/components/SLABanner';
+import SLAChartsSection from '@/components/SLAChartsSection';
+import CommentForm from '@/components/CommentForm';
+import LiveTicketsTable from '@/components/LiveTicketsTable';
 
 export default function SLADashboardPage() {
   return (
