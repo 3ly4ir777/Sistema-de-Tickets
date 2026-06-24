@@ -14,18 +14,28 @@ export default function Sidebar() {
             <LayoutDashboard size={20} />
             <span className="font-medium">Dashboard</span>
           </a>
-          <a href="#" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+          <a href="/tickets" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
             <Ticket size={20} />
             <span className="font-medium">Tickets</span>
           </a>
-          <a href="#" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+          <a href="/usuarios" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
             <Users size={20} />
             <span className="font-medium">Clientes</span>
           </a>
-          <a href="#" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+           <a href="/slas" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+            <Users size={20} />
+            <span className="font-medium">SLAs</span>
+          </a>
+          <a href="/reportes" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
+            <LayoutDashboard size={20} />
+            <span className="font-medium">Reportes</span>
+          </a>
+          
+          <a href="/configuracion" className="flex items-center gap-4 px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-colors">
             <Settings size={20} />
             <span className="font-medium">Configuración</span>
           </a>
+          
         </nav>
       </div>
       <div className="p-4 border-t border-slate-800 text-sm text-slate-500 text-center">
