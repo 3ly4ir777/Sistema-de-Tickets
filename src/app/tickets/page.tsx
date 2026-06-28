@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Sidebar from '@/components/Sidebar';
 import Navbar from '@/components/Navbar';
-import { Filter, Plus, ArrowUpDown } from 'lucide-react';
+import { Filter, Plus, ArrowUpDown, X } from 'lucide-react';
+import TicketForm  from '@/components/TicketForm';
 
 interface TicketItem {
   id: string;
@@ -19,6 +20,17 @@ const mockTickets: TicketItem[] = [
 ];
 
 export default function TicketsPage() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleTicketCreated = () => {
+    setIsModalOpen(false);
+    // supabase ...
+  }
+
+
+
+
   return (
     <div className="flex h-screen bg-slate-100 overflow-hidden">
       <Sidebar />
@@ -30,7 +42,10 @@ export default function TicketsPage() {
               <h1 className="text-2xl font-bold text-slate-800">Buzón General de Tickets</h1>
               <p className="text-sm text-slate-500">Administra, asigna y da seguimiento a los casos abiertos.</p>
             </div>
-            <button className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg shadow-sm transition-colors">
+            <button 
+            onClick={() => setIsModalOpen(true)}
+            
+            className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg shadow-sm transition-colors">
               <Plus size={16} /> Nuevo Ticket
             </button>
           </div>
@@ -95,6 +110,28 @@ export default function TicketsPage() {
           </div>
         </main>
       </div>
+
+      {isModalOpen && (
+        <div className="">
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            
+            className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg shadow-sm transition-colors">
+              <X size={20} /> Nuevo Ticket
+            </button>
+
+            <div className='p-2'>
+
+              <TicketForm
+                // onSubmit={handleTicketCreated}
+              />
+
+            </div>
+
+          
+        
+        
+      )}
     </div>
   );
 }
