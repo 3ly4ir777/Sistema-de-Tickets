@@ -13,13 +13,13 @@ export default function TicketForm ({ userId, slas, onSubmitSuccess }: TicketFor
     const [type, setType] = useState<'Incident' | 'Service Request'>('Incident');
     const [priority, setPriority] = useState<'P1' | 'P2'>('P2');
     const [isSubmitting, SetIsSubmitting] = useState(false);
-    const [error, setError] = useState();
+    const [error, SetError] = useState();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         // Handle form submission
-        setIsSubmitting [] (true);
-        setError(null);
+        SetIsSubmitting (true);
+        SetError(undefined);
 
         const TicketData = {
             title,
@@ -35,7 +35,7 @@ export default function TicketForm ({ userId, slas, onSubmitSuccess }: TicketFor
 
     };
 
-    Return (
+    return (
         <form onSubmit={handleSubmit}>
             <h2>
                 Create Ticket

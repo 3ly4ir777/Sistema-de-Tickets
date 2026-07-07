@@ -118,18 +118,14 @@ export default function TicketsPage() {
             
             className="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-medium text-sm px-4 py-2.5 rounded-lg shadow-sm transition-colors">
               <X size={20} /> Nuevo Ticket
-            </button>
+          </button>
 
-            <div className='p-2'>
+          <div className='p-2'>
+            {/*TicketForm*/}
+              {/* onSubmit={handleTicketCreated} */}
 
-              <TicketForm
-                // onSubmit={handleTicketCreated}
-              />
-
-            </div>
-
-          
-        
+          </div>
+        </div>
         
       )}
     </div>
