@@ -1,0 +1,123 @@
+{
+    "name": "tickets list",
+    "ticket01": {
+    "id": "001",
+ "title": "Seguridad de pages",
+ "description": "Que todos los usuarios logueados puedan acceder a las páginas de manera segura y sin problemas, y todos los usuarios no logueados no puedan acceder.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-01T10:00:00Z",
+ "updated_at": "2024-06-01T10:05:00Z",
+ "assigned_to": "support_agent_1"
+},
+"ticket02":
+{
+"id": "002",
+ "title": "Crear formulario de los tickets",
+ "description": "Crear un formulario para que los usuarios puedan crear tickets de soporte, incluyendo campos para el título, descripción, prioridad y asignación.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-02T11:30:00Z",
+ "updated_at": "2024-06-02T12:00:00Z",
+ "assigned_to": "support_agent_2"
+},
+"ticket03":
+{
+"id": "003",
+ "title": "Eliminar todos los  datos estaticos en las paginas",
+ "description": "Eliminar todos los mocks y datos estáticos en las páginas, reemplazándolos con datos dinámicos obtenidos de la base de datos o de la API.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-03T09:15:00Z",
+ "updated_at": "2024-06-03T09:45:00Z",
+ "assigned_to": "support_agent_3"
+},
+"ticket04":
+{
+"id": "004",
+ "title": "Notificaciones de tickets",
+ "description": "Implementar un sistema de notificaciones para que los usuarios reciban alertas cuando se actualicen sus tickets o cuando se les asigne un nuevo ticket.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-04T14:20:00Z",
+ "updated_at": "2024-06-04T14:50:00Z",
+ "assigned_to": "support_agent_4"
+},
+"ticket05":
+{
+"id": "005",
+ "title": "Exportar tickets a CSV",
+ "description": "Agregar una funcionalidad para que los usuarios puedan exportar sus tickets a un archivo CSV para su análisis o respaldo.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-05T16:10:00Z",
+ "updated_at": "2024-06-05T16:40:00Z",
+ "assigned_to": "support_agent_5"
+},
+"ticket06":
+{
+"id": "006",
+ "title": "Agregar un cierre de sesión",
+ "description": "Implementar una función de cierre de sesión para que los usuarios puedan salir de su cuenta de manera segura.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-06T13:00:00Z",
+ "updated_at": "2024-06-06T13:30:00Z",
+ "assigned_to": "support_agent_6"
+},
+"ticket07":
+{
+"id": "007",
+ "title": "Funcionalidad a pagina SLA",
+ "description": "Implementar la funcionalidad en la página de SLA para que los usuarios puedan visualizar y gestionar los Acuerdos de Nivel de Servicio.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-07T15:45:00Z",
+ "updated_at": "2024-06-07T16:15:00Z",
+ "assigned_to": "support_agent_7"
+},
+"ticket08":
+{
+"id": "008",
+ "title": "Implementar un ticket a varios usuarios",
+ "description": "Permitir que un ticket pueda ser asignado a varios usuarios para que puedan colaborar en su resolución.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-08T10:30:00Z",
+ "updated_at": "2024-06-08T11:00:00Z",
+ "assigned_to": "support_agent_8"
+},
+"ticket09":
+{
+"id": "009",
+ "title": "Crear página de configuraciones del sistema",
+ "description": "Crear una página de configuraciones del sistema donde los administradores puedan ajustar parámetros como notificaciones, permisos de usuario y preferencias generales.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-09T12:00:00Z",
+ "updated_at": "2024-06-09T12:30:00Z",
+ "assigned_to": "support_agent_9"
+},
+"ticket10":
+{
+"id": "010",
+ "title": "Crear un componente en el cual se puedan agregar comentarios y visualizar los de los miembros del equipo",
+ "description": "Implementar un componente en la aplicación que permita a los usuarios agregar comentarios a los tickets y visualizar los comentarios realizados por otros miembros del equipo, fomentando la colaboración y comunicación.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-10T14:15:00Z",
+ "updated_at": "2024-06-10T14:45:00Z",
+ "assigned_to": "support_agent_10"
+},
+"ticket11":
+{
+"id": "011",
+ "title": "Dar funcionalidad a pagina de usuarios",
+ "description": "Implementar la funcionalidad completa en la página de usuarios, incluyendo la visualización de información del usuario, edición de perfil y gestión de preferencias.",
+ "status": "Open",
+ "priority": "Alta",
+ "created_at": "2024-06-11T09:00:00Z",
+ "updated_at": "2024-06-11T09:30:00Z",
+ "assigned_to": "support_agent_11"
+}}
+
