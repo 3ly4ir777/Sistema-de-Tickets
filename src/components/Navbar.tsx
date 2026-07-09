@@ -1,7 +1,10 @@
 import React from 'react';
-import { Search, Bell } from 'lucide-react';
+import { Search, Bell, LogOut } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function Navbar() {
+  const { user, logout } = useAuth();
+
   return (
     <header className="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-6 sticky top-0 z-10 shrink-0">
       <div className="relative w-96">
@@ -13,19 +16,22 @@ export default function Navbar() {
         />
       </div>
       <div className="flex items-center gap-4">
-        <button className="relative p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors">
+        <button className="relative p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors" title="Notificaciones">
           <Bell size={20} />
           <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
         </button>
         <div className="h-8 w-px bg-slate-200"></div>
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-cyan-600 flex items-center justify-center font-bold text-white text-sm">
-            OP
+            {user?.name ? user.name.slice(0,2).toUpperCase() : 'OP'}
           </div>
           <div className="hidden sm:block">
-            <p className="text-sm font-semibold text-slate-700 leading-none">Operador SLA</p>
-            <span className="text-xs text-slate-400">Administrador</span>
+            <p className="text-sm font-semibold text-slate-700 leading-none">{user?.name || 'Usuario'}</p>
+            <span className="text-xs text-slate-400">{user?.role || '—'}</span>
           </div>
+          <button onClick={() => logout()} title="Cerrar sesión" className="ml-3 p-2 rounded-md text-slate-600 hover:bg-slate-100">
+            <LogOut size={16} />
+          </button>
         </div>
       </div>
     </header>

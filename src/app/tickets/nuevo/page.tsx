@@ -1,9 +1,29 @@
 "use client";
 
-export default function DashboardPage() {
+import React from 'react';
+import Sidebar from '@/components/Sidebar';
+import Navbar from '@/components/Navbar';
+import TicketForm from '@/components/TicketForm';
+import Protected from '@/components/Protected';
+import { useAuth } from '@/hooks/useAuth';
+
+export default function NewTicketPage() {
+  const { user } = useAuth();
+
   return (
-    <div className="flex h-screen bg-slate-100 font-sans overflow-hidden">
-      {/* Barra Lateral Reutilizable */}
-    </div>
+    <Protected>
+      <div className="flex h-screen bg-slate-100 overflow-hidden">
+        <Sidebar />
+        <div className="flex-1 flex flex-col overflow-y-auto">
+          <Navbar />
+          <main className="p-6 max-w-[800px] w-full mx-auto">
+            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+              <h2 className="font-bold text-lg mb-4">Nuevo Ticket</h2>
+              <TicketForm userId={user?.id || ''} slas={[]} onSubmitSuccess={() => { window.location.href = '/tickets'; }} />
+            </div>
+          </main>
+        </div>
+      </div>
+    </Protected>
   );
 }
