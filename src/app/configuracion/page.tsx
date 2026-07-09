@@ -21,14 +21,14 @@ interface ResolutionCode {
   description: string;
 }
 
-// export default function ConfiguracionPage() {
-//   return (
-//     // Protegemos la ruta para que solo entren usuarios logueados
-//     <ProtectedRoute allowedRoles={['administrador', 'encargado_sistemas', 'usuario']}>
-//       <ConfiguracionContent />
-//     </ProtectedRoute>
-//   );
-// }
+export default function ConfiguracionPage() {
+  return (
+    // Protegemos la ruta para que solo entren usuarios logueados
+    <Protected>
+      <ConfiguracionContent />
+    </Protected>
+  );
+}
 
 function ConfiguracionContent() {
   const { user } = useAuth();
@@ -134,8 +134,9 @@ function ConfiguracionContent() {
   // Si el usuario es un cliente común, no le mostramos la gestión de SLAs
   const isAdminOrSystems = user?.role === 'administrador' || user?.role === 'encargado_sistemas';
 
+
   return (
-    <Protected>
+
     <div className="min-h-screen bg-slate-900 text-slate-100 p-6 md:p-10">
       {/* Encabezado */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 border-b border-slate-800 pb-5">
@@ -323,6 +324,6 @@ function ConfiguracionContent() {
 
       </div>
     </div>
-    </Protected>
+    
   );
 }
