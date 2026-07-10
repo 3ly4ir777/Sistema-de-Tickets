@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line 
 } from 'recharts';
+
+// Parche definitivo para silenciar las alertas de tamaño de Recharts en Next.js/Turbopack
+// La librería tiene error de alerta falsa que no afecta la funcionalidad, pero ensucia la consola.
+if (typeof window !== 'undefined') {
+  const originalWarn = console.warn;
+  console.warn = (...args) => {
+    if (
+      args[0] && 
+      typeof args[0] === 'string' && 
+      args[0].includes('The width(-1) and height(-1) of chart should be greater than 0')
+    ) {
+      return; // Ignora esta alerta molesta y falsa
+    }
+    originalWarn(...args);
+  };
+}
+
 
 // Mock Data
 const totalTicketsData = [
@@ -60,7 +77,7 @@ export default function SLAChartsSection() {
             Nbr of Tickets- Total
           </h3>
           <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={100} id="chart-total-tickets">
               <BarChart data={totalTicketsData} layout="vertical" margin={{ left: 20, right: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                 <XAxis type="number" domain={[0, 4000]} />
@@ -82,7 +99,8 @@ export default function SLAChartsSection() {
             Top 5 Resolution code - Incident
           </h3>
           <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={100} id="chart-top-resolution">
+
               <BarChart data={topResolutionData} layout="vertical" margin={{ left: 20, right: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                 <XAxis type="number" domain={[0, 2000]} />
@@ -103,7 +121,7 @@ export default function SLAChartsSection() {
             <div className="flex flex-col items-center">
               <span className="text-xs font-semibold text-slate-500 mb-2">Incident</span>
               <div className="w-28 h-28 relative flex items-center justify-center">
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={100} id="chart-ticket-closure-incident">
                   <PieChart>
                     <Pie data={incidentClosureData} innerRadius={32} outerRadius={44} dataKey="value" startAngle={90} endAngle={-270}>
                       {incidentClosureData.map((entry, idx) => <Cell key={idx} fill={entry.color} />)}
@@ -117,7 +135,7 @@ export default function SLAChartsSection() {
             <div className="flex flex-col items-center">
               <span className="text-xs font-semibold text-slate-500 mb-2">Service Request</span>
               <div className="w-28 h-28 relative flex items-center justify-center">
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={100} id="chart-ticket-closure-service-request">
                   <PieChart>
                     <Pie data={serviceRequestClosureData} innerRadius={32} outerRadius={44} dataKey="value" startAngle={90} endAngle={-270}>
                       {serviceRequestClosureData.map((entry, idx) => <Cell key={idx} fill={entry.color} />)}
@@ -139,7 +157,7 @@ export default function SLAChartsSection() {
             Nbr of Tickets-Priority
           </h3>
           <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={100} id="chart-priority">
               <BarChart data={priorityData} layout="vertical" margin={{ left: 20, right: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                 <XAxis type="number" domain={[0, 4000]} />
@@ -159,7 +177,7 @@ export default function SLAChartsSection() {
             Daily Ticket Creation Trend
           </h3>
           <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={100} minHeight={100} id="chart-daily-creation">
               <LineChart data={dailyTrendData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="date" tick={{ fontSize: 10 }} />
