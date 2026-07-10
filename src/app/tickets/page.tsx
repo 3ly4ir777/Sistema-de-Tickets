@@ -38,25 +38,6 @@ export default function TicketsPage() {
               </button>
             </div>
 
-            {/* Filtros */}
-            <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-wrap gap-3 items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1">
-                  <Filter size={14} /> Filtrar por:
-                </span>
-                <select className="text-sm border border-slate-200 rounded-lg px-3 py-1.5 bg-white text-slate-600 focus:outline-none">
-                  <option>Todos los Estados</option>
-                  <option>Abiertos</option>
-                  <option>En Progreso</option>
-                  <option>Cerrados</option>
-                </select>
-                <select className="text-sm border border-slate-200 rounded-lg px-3 py-1.5 bg-white text-slate-600 focus:outline-none">
-                  <option>Todas las Prioridades</option>
-                  <option>P1 - Alta</option>
-                  <option>P2 - Estándar</option>
-                </select>
-              </div>
-            </div>
 
             <LiveTicketsTable />
           </main>
