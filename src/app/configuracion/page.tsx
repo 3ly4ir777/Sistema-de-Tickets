@@ -315,7 +315,7 @@ function ConfiguracionContent() {
           </div>
         ) : (
           /* Mensaje para usuarios regulares */
-          <div className="lg:col-span-2 bg-slate-800/20 border border-slate-800/50 rounded-2xl p-8 flex flex-col items-center justify-center text-center h-full min-h-[300px]">
+          <div className="lg:col-span-2 bg-slate-800/20 border border-slate-800/50 rounded-2xl p-8 flex flex-col items-center justify-center text-center h-full min-h-300px">
             <p className="text-slate-400 max-w-sm text-sm">
               Las configuraciones avanzadas del sistema (SLAs, tiempos de atención y códigos de cierre) solo están disponibles para el personal de administración y soporte técnico.
             </p>

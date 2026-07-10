@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 interface TicketFormProps {
   userId: string;
-  slas: { id: string; name: string }[];
+  slas: { id: number; name: string }[];
   onSubmitSuccess?: () => void; 
 }
 
@@ -28,7 +28,7 @@ export default function TicketForm({ userId, slas, onSubmitSuccess }: TicketForm
                 .insert({
                     title,
                     description,
-                    type: type === 'Incident' ? 'incident' : 'service_request',
+                    type: type === 'Incident' ? 'Incident' : 'Service Request',
                     priority: priority === 'P1' ? 'P1' : 'P2',
                     requester_id: userId,
                     created_at: new Date().toISOString()
@@ -56,8 +56,8 @@ export default function TicketForm({ userId, slas, onSubmitSuccess }: TicketForm
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <h2>Create Ticket</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-slate-400">
+            <h2>Creaar nuevo Ticket</h2>
             
             {/* ✅ Visualización del mensaje de error si existe */}
             {error && (
@@ -89,6 +89,31 @@ export default function TicketForm({ userId, slas, onSubmitSuccess }: TicketForm
                     placeholder="ej. El servidor dejó de responder tras aplicar el parche"
                 />
             </div>
+
+            <div className="space-y-2 flex flex-col">
+                <label>Tipo de Ticket</label>
+                <select
+                    value={type}
+                    onChange={(e) => setType(e.target.value as 'Incident' | 'Service Request')}
+                    className="border rounded px-3 py-2"
+                >
+                    <option value="Incident">Incidente</option>
+                    <option value="Service Request">Requerimiento de Servicio</option>
+                </select>
+            </div>
+
+            <div className="space-y-2 flex flex-col">
+                <label>Prioridad</label>
+                <select
+                    value={priority}
+                    onChange={(e) => setPriority(e.target.value as 'P1' | 'P2')}
+                    className="border rounded px-3 py-2"
+                >
+                    <option value="P1">P1 - Alta</option>
+                    <option value="P2">P2 - Media</option>
+                </select>
+            </div>
+
 
             <button 
                 type="submit" 

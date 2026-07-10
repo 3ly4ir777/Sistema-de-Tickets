@@ -16,9 +16,9 @@ export default function NewTicketPage() {
         <Sidebar />
         <div className="flex-1 flex flex-col overflow-y-auto">
           <Navbar />
-          <main className="p-6 max-w-[800px] w-full mx-auto">
+          <main className="p-6 max-w-800 w-full mx-auto">
             <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
-              <h2 className="font-bold text-lg mb-4">Nuevo Ticket</h2>
+              <h2 className="font-bold text-slate-400 mb-4">Nuevo Ticket</h2>
               <TicketForm userId={user?.id || ''} slas={[]} onSubmitSuccess={() => { window.location.href = '/tickets'; }} />
             </div>
           </main>
