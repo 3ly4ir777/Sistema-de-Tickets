@@ -12,7 +12,7 @@ import Protected from '@/components/Protected';
 
 export default function SLADashboardPage() {
   return (
-    <Protected>
+    <Protected allowedRoles={['administrador','encargado_sistemas']}>
       <div className="flex h-screen bg-slate-100 font-sans overflow-hidden">
         {/* Barra Lateral Reutilizable */}
         <Sidebar />

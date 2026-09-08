@@ -24,8 +24,29 @@ export default function LoginPage() {
     const result = await login(email, password);
     
     if (result.success) {
-      // Redirigir al dashboard principal una vez logueado
-      router.push('/');
+      try {
+        // Consultar el rol del usuario para redirigir a la vista correcta
+        const { supabase } = await import('@/lib/supabaseClient');
+        const { data: { user } } = await supabase.auth.getUser();
+
+        if (user) {
+          const { data: userData } = await supabase
+            .from('users')
+            .select('role')
+            .eq('id', user.id)
+            .single();
+
+          if (userData?.role === 'usuario') {
+            router.push('/portal-usuario');
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Error verificando rol al iniciar sesión:', err);
+      }
+
+      // Redirección por defecto para Administradores / Encargados de Sistemas
+      router.push('/tickets');
     } else {
       setErrorMsg(result.error || 'Credenciales incorrectas. Intenta de nuevo.');
       setIsSubmitting(false);

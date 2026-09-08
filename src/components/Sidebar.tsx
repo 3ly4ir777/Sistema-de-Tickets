@@ -10,7 +10,7 @@ export default function Sidebar() {
           <span>SLA Dashboard</span>
         </div>
         <nav className="p-4 space-y-2">
-          <a href="#" className="flex items-center gap-4 px-4 py-3 bg-cyan-600 text-white rounded-lg transition-colors">
+          <a href="/" className="flex items-center gap-4 px-4 py-3 bg-cyan-600 text-white rounded-lg transition-colors">
             <LayoutDashboard size={20} />
             <span className="font-medium">Dashboard</span>
           </a>

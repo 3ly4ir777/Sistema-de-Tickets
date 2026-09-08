@@ -7,5 +7,6 @@ export function useAuth() {
     loading: context.loading,
     login: context.login,
     logout: context.logout,
+    singOut: context.logout, // Alias para logout
   };
 }
